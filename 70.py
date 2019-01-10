@@ -6,7 +6,7 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        memo = [-1] * (n + 1)
+        self.memo = [-1] * (n + 1)
         return self.getClimStairs(n)
 
     def getClimStairs(self, n):
