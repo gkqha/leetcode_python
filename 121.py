@@ -1,13 +1,9 @@
 class Solution:
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
+    def maxProfit(self, prices: List[int]) -> int:
         leng = len(prices)
         if leng <= 1:
             return 0
-        nums = [None] * leng
+        nums = [0] * leng
         nums[0] = prices[0]
         nums[1] = prices[1] - prices[0]
         i = 2
@@ -25,4 +21,3 @@ class Solution:
 
 s = Solution()
 print(s.maxProfit([2, 1, 4]))
-
