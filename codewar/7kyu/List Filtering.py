@@ -6,5 +6,5 @@ def filter_list(l):
             return True
         else:
             return x.isdigit()
-    a=1+1.0
+    a = 1+1.0
     return list(filter(func(), l))
