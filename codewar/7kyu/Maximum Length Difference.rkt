@@ -1,0 +1,37 @@
+#lang racket
+(provide max-dif-length)
+
+(define (max-dif-length s1 s2)
+  (if (or (empty? s1) (empty? s2))
+      -1
+      (sol s1 s2)))
+
+
+(define (sol s1 s2)
+  (define s1-len-min (string-length (car s1)))
+  (define s2-len-max 0)
+  (define s1-len-max 0)
+  (define s2-len-min (string-length (car s2)))
+
+  (for ([i s1])
+    (if (< (string-length i) s1-len-min)
+        (set! s1-len-min (string-length i))
+        '()))
+  (for ([i s2])
+    (if (> (string-length i) s2-len-max)
+        (set! s2-len-max (string-length i))
+        '()))
+  (for ([i s2])
+    (if (< (string-length i) s2-len-min)
+        (set! s2-len-min (string-length i))
+        '()))
+  (for ([i s1])
+    (if (> (string-length i) s1-len-max)
+        (set! s1-len-max (string-length i))
+        '()))
+; (display s1-len-min)
+; (display s2-len-max)
+; (display s2-len-min)
+; (display s1-len-max)
+  (max (abs (- s2-len-max s1-len-min)) (abs (- s1-len-max s2-len-min))))
+(display (max-dif-length '("hoqq" "bbllkw" "oox" "ejjuyyy" "plmiis" "xxxzgpsssa" "xxwwkktt" "znnnnfqknaz" "qqquuhii" "dvvvwz") '("cccooommaaqqoxii" "gggqaffhhh" "tttoowwwmmww")))
